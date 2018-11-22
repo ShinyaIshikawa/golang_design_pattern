@@ -1,5 +1,5 @@
 package main
 
 type Aggregate interface {
-	iterator() Iterator
+	Iterator() Iterator
 }

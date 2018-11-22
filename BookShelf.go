@@ -5,6 +5,19 @@ type BookShelf struct {
 	last  int
 }
 
-func (bs BookShelf) iterator() Iterator {
-	return
+func (bs BookShelf) GetBookAt(index int) Book {
+	return bs.books[index]
+}
+
+func (bs BookShelf) AppendBook(book Book) {
+	bs.books = append(bs.books, book)
+	bs.last++
+}
+
+func (bs BookShelf) GetLength() int {
+	return bs.last
+}
+
+func (bs BookShelf) Iterator() BookShelfIterator {
+	return BookShelfIterator{bookShelf: bs, index: 0}
 }
