@@ -1,25 +1,25 @@
-package main
+package iterator
 
 // BookShelf has book
 type BookShelf struct {
-	books []Book
-	last  int
+	Books []Book
+	Last  int
 }
 
 // GetBookAt return Book
 func (bs *BookShelf) GetBookAt(index int) Book {
-	return bs.books[index]
+	return bs.Books[index]
 }
 
 // AppendBook add Book into Book slice
 func (bs *BookShelf) AppendBook(book Book) {
-	bs.books = append(bs.books, book)
-	bs.last++
+	bs.Books = append(bs.Books, book)
+	bs.Last++
 }
 
 // GetLength return books number
 func (bs *BookShelf) GetLength() int {
-	return bs.last
+	return bs.Last
 }
 
 // Iterator return BookShelfIterator

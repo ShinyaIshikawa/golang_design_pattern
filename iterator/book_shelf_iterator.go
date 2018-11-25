@@ -1,14 +1,14 @@
-package main
+package iterator
 
 // BookShelfIterator has function for iteration
 type BookShelfIterator struct {
-	bookShelf BookShelf
-	index     int
+	BookShelf BookShelf
+	Index     int
 }
 
 // HasNext return boolean
 func (bsi *BookShelfIterator) HasNext() bool {
-	if bsi.index < bsi.bookShelf.GetLength() {
+	if bsi.Index < bsi.BookShelf.GetLength() {
 		return true
 	}
 	return false
@@ -16,7 +16,7 @@ func (bsi *BookShelfIterator) HasNext() bool {
 
 // Next return Book
 func (bsi *BookShelfIterator) Next() Book {
-	book := bsi.bookShelf.GetBookAt(bsi.index)
-	bsi.index++
+	book := bsi.BookShelf.GetBookAt(bsi.Index)
+	bsi.Index++
 	return book
 }
