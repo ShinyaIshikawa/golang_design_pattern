@@ -24,5 +24,5 @@ func (bs *BookShelf) GetLength() int {
 
 // Iterator return BookShelfIterator
 func (bs BookShelf) Iterator() BookShelfIterator {
-	return BookShelfIterator{bookShelf: bs, index: 0}
+	return BookShelfIterator{BookShelf: bs, Index: 0}
 }

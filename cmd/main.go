@@ -2,9 +2,17 @@ package main
 
 import (
 	"fmt"
+
+	adp "github.com/ShinyaIshikawa/golang_design_pattern/adapter"
 	itr "github.com/ShinyaIshikawa/golang_design_pattern/iterator"
-	)
+)
+
 func main() {
+	executeIterator()
+	executeAdapter()
+}
+
+func executeIterator() {
 	bookShelf := itr.BookShelf{Last: 0}
 	bookShelf.AppendBook(itr.Book{Name: "Around the World in 80 days"})
 	bookShelf.AppendBook(itr.Book{Name: "Bidle"})
@@ -13,4 +21,10 @@ func main() {
 	for it.HasNext() {
 		fmt.Println(it.Next())
 	}
+}
+
+func executeAdapter() {
+	pb := adp.NewPrintBanner("Black Friday SALE!")
+	pb.PrintWeak()
+	pb.PrintStrong()
 }
