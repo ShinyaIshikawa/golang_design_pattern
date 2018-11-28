@@ -9,4 +9,8 @@ Itaratorパターン
 ・皮を被せる
 Adapterパターン
 
+・具体的な処理をサブクラスにまかせる
+Template Methodパターン
+
+
 
