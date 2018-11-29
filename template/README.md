@@ -6,11 +6,11 @@
 * display_contoroller  
 処理の大枠を定めています。 display_contorollerはdisplayを持ちます。
 
-* display(interface)
+* display(interface)  
 表示に関する振る舞いを定義しています。
 
-* char_display
+* char_display  
 displayをimplemetします。
 
-* string_display
+* string_display  
 displayをimplemetします。
