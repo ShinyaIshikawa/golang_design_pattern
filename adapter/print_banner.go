@@ -8,9 +8,7 @@ type PrintBanner struct {
 // NewPrintBanner is constructer.
 func NewPrintBanner(title string) *PrintBanner {
 	//new
-	pb := new(PrintBanner)
-	pb.banner = Banner{title: title}
-	return pb
+	return &PrintBanner{banner: Banner{title: title}}
 }
 
 // PrintWeak is adapter of Banner function.
