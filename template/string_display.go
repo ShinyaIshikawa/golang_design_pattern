@@ -12,11 +12,7 @@ type StringDisplay struct {
 
 // NewStringDisplay constructor.
 func NewStringDisplay(string string, width int) *StringDisplay {
-	//new
-	sd := new(StringDisplay)
-	sd.string = string
-	sd.width = width
-	return sd
+	return &StringDisplay{string: string, width: width}
 }
 
 // Open id first execute function.

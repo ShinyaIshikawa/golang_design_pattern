@@ -11,10 +11,7 @@ type CharDisplay struct {
 
 // NewCharDisplay constructor
 func NewCharDisplay(char string) *CharDisplay {
-	//new
-	cd := new(CharDisplay)
-	cd.char = char
-	return cd
+	return &CharDisplay{char: char}
 }
 
 // Open function
