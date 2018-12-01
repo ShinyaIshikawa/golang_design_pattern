@@ -23,6 +23,6 @@ func (bs *BookShelf) GetLength() int {
 }
 
 // Iterator return BookShelfIterator
-func (bs BookShelf) Iterator() BookShelfIterator {
-	return BookShelfIterator{BookShelf: bs, Index: 0}
+func (bs *BookShelf) Iterator() *BookShelfIterator {
+	return &BookShelfIterator{BookShelf: bs, Index: 0}
 }

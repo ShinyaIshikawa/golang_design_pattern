@@ -2,7 +2,7 @@ package iterator
 
 // BookShelfIterator has function for iteration
 type BookShelfIterator struct {
-	BookShelf BookShelf
+	BookShelf *BookShelf
 	Index     int
 }
 
