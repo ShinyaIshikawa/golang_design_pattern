@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	adp "github.com/ShinyaIshikawa/golang_design_pattern/adapter"
+	fm "github.com/ShinyaIshikawa/golang_design_pattern/factory"
 	itr "github.com/ShinyaIshikawa/golang_design_pattern/iterator"
 	tm "github.com/ShinyaIshikawa/golang_design_pattern/template"
 )
@@ -12,6 +13,7 @@ func main() {
 	executeIterator()
 	executeAdapter()
 	executeTemplateMethod()
+	executeFactoryMethod()
 }
 
 func executeIterator() {
@@ -38,4 +40,10 @@ func executeTemplateMethod() {
 	sd := tm.NewStringDisplay("gopher is nice.", 10)
 	sdc := tm.NewDisplayController(sd)
 	sdc.Display()
+}
+
+func executeFactoryMethod() {
+	icf := fm.NewIDCardFactory()
+	cdc := fm.Create("ゆうきひろし", icf)
+	cdc.Use()
 }
