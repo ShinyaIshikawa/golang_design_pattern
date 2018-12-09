@@ -5,7 +5,7 @@ type IDCardFactory struct {
 	owners []Product
 }
 
-// NewIDCardFactory
+// NewIDCardFactory is constractor
 func NewIDCardFactory() *IDCardFactory {
 	return &IDCardFactory{}
 }
@@ -20,7 +20,7 @@ func (icf *IDCardFactory) registerProduct(p Product) {
 	icf.owners = append(icf.owners, p)
 }
 
-// GetOwners
+// GetOwners return owners
 func (icf IDCardFactory) GetOwners() []Product {
 	return icf.owners
 }
