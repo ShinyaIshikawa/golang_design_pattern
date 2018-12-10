@@ -19,7 +19,7 @@ func (i IDCard) Use() {
 	fmt.Println(i.owner + "のカードを作ります")
 }
 
-// getOwner
-func (i IDCard) getOwner() string {
+// GetOwner return owner string
+func (i IDCard) GetOwner() string {
 	return i.owner
 }

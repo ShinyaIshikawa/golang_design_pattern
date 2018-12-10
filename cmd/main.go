@@ -43,7 +43,10 @@ func executeTemplateMethod() {
 }
 
 func executeFactoryMethod() {
-	icf := fm.NewIDCardFactory()
-	cdc := fm.Create("ゆうきひろし", icf)
-	cdc.Use()
+	//create IDCardFactory instance.
+	cf := fm.NewIDCardFactory()
+	//create IDCard instance.
+	idc := fm.Create("ゆうきひろし", cf)
+	//IDcard use.
+	idc.Use()
 }
