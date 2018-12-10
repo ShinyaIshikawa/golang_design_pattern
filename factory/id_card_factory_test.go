@@ -7,16 +7,30 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestIDCardFactoryType(t *testing.T) {
+func TestCardFactoryType(t *testing.T) {
 	icf := NewIDCardFactory()
 	assert.Equal(t, "*factory.IDCardFactory", reflect.TypeOf(icf).String())
 }
 
-func TestIDCardCreate(t *testing.T) {
+func TestCardCreate(t *testing.T) {
 	cf := NewIDCardFactory()
-	idc := CreateInstance("solid", cf)
-	if value, ok := idc.(*IDCard); ok {
-		assert.Equal(t, "solid", value.owner)
+	id := CreateInstance("solid principle", cf)
+	if value, ok := id.(*IDCard); ok {
+		assert.Equal(t, "solid principle", value.owner)
+		assert.NotEqual(t, "hoge", value.owner)
+	} else {
+		assert.Fail(t, "CreateInstance function does not create IDCard instance.")
+	}
+}
+
+func TestCardRegist(t *testing.T) {
+	cf := NewIDCardFactory()
+	CreateInstance("solid principle", cf)
+	assert.NotNil(t, cf.GetOwners)
+	owners := cf.GetOwners()[0]
+
+	if value, ok := owners.(*IDCard); ok {
+		assert.Equal(t, "solid principle", value.owner)
 		assert.NotEqual(t, "hoge", value.owner)
 	} else {
 		assert.Fail(t, "CreateInstance function does not create IDCard instance.")

@@ -21,6 +21,6 @@ func (icf *IDCardFactory) registerProduct(p Product) {
 }
 
 // GetOwners return owners
-func (icf IDCardFactory) GetOwners() []Product {
+func (icf *IDCardFactory) GetOwners() []Product {
 	return icf.owners
 }
