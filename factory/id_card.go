@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// IDCard implement prodct
+// IDCard implement Product. IDCard can use.
 type IDCard struct {
 	owner string
 }
@@ -14,7 +14,7 @@ func NewIDCard(owner string) *IDCard {
 	return &IDCard{owner}
 }
 
-// Use print message
+// Use is Product's function
 func (i IDCard) Use() {
 	fmt.Println(i.owner + "のカードを作ります")
 }

@@ -1,11 +1,11 @@
 package factory
 
-// IDCardFactory interface
+// IDCardFactory has Products.
 type IDCardFactory struct {
 	owners []Product
 }
 
-// NewIDCardFactory is constractor
+// NewIDCardFactory is constractor of IDCardFactory
 func NewIDCardFactory() *IDCardFactory {
 	return &IDCardFactory{}
 }
