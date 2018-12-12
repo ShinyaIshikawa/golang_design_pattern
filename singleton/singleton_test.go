@@ -1,16 +1,42 @@
 package singleton
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestSingleton(t *testing.T) {
-	obj1 := getInstance()
-	obj2 := getInstance()
+	expect := GetInstance()
+	actual := GetInstance()
 
-	expect := obj1
-	actual := obj2
-	if obj1 != obj2 {
-		t.Errorf(`expect="%s" actual="%s"`, expect, actual)
+	if expect == nil || actual == nil {
+		t.Errorf(`object is nil`)
+	}
+	if expect != actual {
+		fmt.Println(expect)
+		fmt.Println(actual)
+		t.Errorf(`error`)
+	}
+}
+
+func TestGoroutine(t *testing.T) {
+	var expect *Singleton
+	var actual *Singleton
+	go func() {
+		expect = GetInstance()
+	}()
+	go func() {
+		actual = GetInstance()
+	}()
+	for {
+		if expect != nil && actual != nil {
+			break
+		}
+	}
+
+	if expect != actual {
+		fmt.Println(expect)
+		fmt.Println(actual)
+		t.Errorf(`error`)
 	}
 }
