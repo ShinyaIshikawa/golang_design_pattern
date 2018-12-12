@@ -6,6 +6,7 @@ import (
 	adp "github.com/ShinyaIshikawa/golang_design_pattern/adapter"
 	fm "github.com/ShinyaIshikawa/golang_design_pattern/factory"
 	itr "github.com/ShinyaIshikawa/golang_design_pattern/iterator"
+	sin "github.com/ShinyaIshikawa/golang_design_pattern/singleton"
 	tm "github.com/ShinyaIshikawa/golang_design_pattern/template"
 )
 
@@ -14,6 +15,7 @@ func main() {
 	executeAdapter()
 	executeTemplateMethod()
 	executeFactoryMethod()
+	executeSingleton()
 }
 
 func executeIterator() {
@@ -49,4 +51,8 @@ func executeFactoryMethod() {
 	idc := fm.CreateInstance("ゆうきひろし", cf)
 	//IDcard use.
 	idc.Use()
+}
+
+func executeSingleton() {
+	sin.GetInstance()
 }
