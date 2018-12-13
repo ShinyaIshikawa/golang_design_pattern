@@ -1,7 +1,6 @@
 package singleton
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -13,8 +12,6 @@ func TestSingleton(t *testing.T) {
 		t.Errorf(`object is nil`)
 	}
 	if expect != actual {
-		fmt.Println(expect)
-		fmt.Println(actual)
 		t.Errorf(`error`)
 	}
 }
@@ -35,8 +32,6 @@ func TestGoroutine(t *testing.T) {
 	}
 
 	if expect != actual {
-		fmt.Println(expect)
-		fmt.Println(actual)
 		t.Errorf(`error`)
 	}
 }
