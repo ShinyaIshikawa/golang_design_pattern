@@ -6,6 +6,7 @@ import (
 	adp "github.com/ShinyaIshikawa/golang_design_pattern/adapter"
 	fm "github.com/ShinyaIshikawa/golang_design_pattern/factory"
 	itr "github.com/ShinyaIshikawa/golang_design_pattern/iterator"
+	pr "github.com/ShinyaIshikawa/golang_design_pattern/prototype"
 	sin "github.com/ShinyaIshikawa/golang_design_pattern/singleton"
 	tm "github.com/ShinyaIshikawa/golang_design_pattern/template"
 )
@@ -55,4 +56,25 @@ func executeFactoryMethod() {
 
 func executeSingleton() {
 	sin.GetInstance()
+}
+
+func executePrototype() {
+	m := pr.NewManager()
+	// create instance
+	upen := pr.NewUnderlinePen("~")
+	mbox := pr.NewMessageBox("*")
+	sbox := pr.NewMessageBox("-")
+
+	// register instance to manager
+	m.Register("strong message", upen)
+	m.Register("waring box", mbox)
+	m.Register("slash box", sbox)
+
+	// manager clone instance
+	p1 := m.Create("strong message")
+	p1.Use("Hello, world")
+	p2 := m.Create("warning box")
+	p2.Use("Hello, world")
+	p3 := m.Create("slash box")
+	p3.Use("Hello, world")
 }

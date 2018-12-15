@@ -3,7 +3,6 @@ package singleton
 import (
 	"fmt"
 	"sync"
-	"time"
 )
 
 // singleton instance.
@@ -23,7 +22,6 @@ func GetInstance() *Singleton {
 	// Lock so only one goroutine at a time can access the singleton.
 	mux.Lock()
 	if singleton == nil {
-		time.Sleep(2 * time.Second)
 		singleton = newSinleton()
 	}
 	defer mux.Unlock()
