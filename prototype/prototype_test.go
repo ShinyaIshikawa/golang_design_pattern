@@ -4,20 +4,22 @@ import (
 	"testing"
 )
 
-func TestSingleton(t *testing.T) {
+func TestUnderlinePenClone(t *testing.T) {
 	m := NewManager()
 	upen := NewUnderlinePen("~")
-	mbox := NewMessageBox("*")
-	sbox := NewMessageBox("-")
-	m.register("strong message", upen)
-	m.register("waring box", mbox)
-	m.register("slash box", sbox)
+	m.Register("strong message", upen)
+	p := m.Create("strong message")
+	if upen.ulchar != p.(UnderlinePen).ulchar {
+		t.Error("fail clone UnderlinePen instance.")
+	}
+}
 
-	p1 := m.create("strong message")
-	p1.use("Hello, world")
-	p2 := m.create("warning box")
-	p2.use("Hello, world")
-	p3 := m.create("slash box")
-	p3.use("Hello, world")
-
+func TestMessageBoxClone(t *testing.T) {
+	m := NewManager()
+	upen := NewMessageBox("~")
+	m.Register("strong message", upen)
+	p := m.Create("strong message")
+	if upen.decochar != p.(MessageBox).decochar {
+		t.Error("fail clone MessageBox instance.")
+	}
 }
