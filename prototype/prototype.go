@@ -23,14 +23,18 @@ func NewManager() Manager {
 
 // Register add Prodct to map.
 func (m *Manager) Register(name string, p Product) {
-	m.m = map[string]Product{}
+	if m.m == nil {
+		m.m = map[string]Product{}
+	}
 	m.m[name] = p
 }
 
 // Create call createClone function
 func (m *Manager) Create(name string) Product {
-	p := m.m[name]
-	return p.createClone()
+	if p, ok := m.m[name]; ok {
+		return p.createClone()
+	}
+	return nil
 }
 
 // MessageBox has decoracte character.
@@ -44,15 +48,16 @@ func NewMessageBox(s string) MessageBox {
 	return MessageBox{s}
 }
 
+// Use print strings to standard output.
 func (m MessageBox) Use(s string) {
 	len := len(s)
-	for i := 0; i < len; i++ {
-		fmt.Println(m.decochar)
+	for i := 0; i < (len + 4); i++ {
+		fmt.Print(m.decochar)
 	}
 	fmt.Println("")
 	fmt.Println(m.decochar + " " + s + " " + m.decochar)
 	for i := 0; i < (len + 4); i++ {
-		fmt.Println(m.decochar)
+		fmt.Print(m.decochar)
 	}
 	fmt.Println("")
 }
@@ -72,12 +77,13 @@ func NewUnderlinePen(s string) UnderlinePen {
 	return UnderlinePen{s}
 }
 
+// Use print strings to standard output.
 func (u UnderlinePen) Use(s string) {
 	len := len(s)
 	fmt.Println("¥" + s + "¥")
-	fmt.Println("")
+	fmt.Print(" ")
 	for i := 0; i < len; i++ {
-		fmt.Println(u.ulchar)
+		fmt.Print(u.ulchar)
 	}
 	fmt.Println("")
 }
