@@ -17,6 +17,7 @@ func main() {
 	executeTemplateMethod()
 	executeFactoryMethod()
 	executeSingleton()
+	executePrototype()
 }
 
 func executeIterator() {
@@ -67,7 +68,7 @@ func executePrototype() {
 
 	// register instance to manager
 	m.Register("strong message", upen)
-	m.Register("waring box", mbox)
+	m.Register("warning box", mbox)
 	m.Register("slash box", sbox)
 
 	// manager clone instance
