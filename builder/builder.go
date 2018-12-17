@@ -1,7 +1,6 @@
 package builder
 
 type Builder interface {
-	makeTitle()
 }
 
 // Define clone function.
