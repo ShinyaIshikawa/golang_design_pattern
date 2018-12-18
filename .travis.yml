@@ -8,8 +8,8 @@ before_install:
 before_script:
   - golint ./... | xargs -r false
 
-script:
-- ./go_test.sh
+#script:
+#- ./go_test.sh
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
