@@ -18,3 +18,23 @@ func TestNewHTMLBuilder(t *testing.T) {
 		t.Error("NewHTMLBuilder failed.")
 	}
 }
+
+func TestNewDirector(t *testing.T) {
+	h := NewHTMLBuilder()
+	n := NewDirector(h)
+	if reflect.TypeOf(n).String() != "*builder.Director" {
+		t.Error("NewDirector failed.")
+	}
+}
+
+func TestHTMLBuilderConstruct(t *testing.T) {
+	h := NewHTMLBuilder()
+	d := NewDirector(h)
+	d.Construct()
+}
+
+func TestTextBuilderConstruct(t *testing.T) {
+	tx := NewTextBuilder()
+	d := NewDirector(tx)
+	d.Construct()
+}
