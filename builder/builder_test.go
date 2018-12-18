@@ -27,8 +27,14 @@ func TestNewDirector(t *testing.T) {
 	}
 }
 
-func TestConstruct(t *testing.T) {
+func TestHTMLBuilderConstruct(t *testing.T) {
 	h := NewHTMLBuilder()
-	n := NewDirector(h)
-	n.Construct()
+	d := NewDirector(h)
+	d.Construct()
+}
+
+func TestTextBuilderConstruct(t *testing.T) {
+	tx := NewTextBuilder()
+	d := NewDirector(tx)
+	d.Construct()
 }

@@ -42,7 +42,7 @@ func (t TextBuilder) makeTitle(s string) {
 func (t TextBuilder) makeString(s string) {
 }
 
-func (t TextBuilder) akeItems(s []string) {
+func (t TextBuilder) makeItems(s []string) {
 }
 
 func (t TextBuilder) close() {
