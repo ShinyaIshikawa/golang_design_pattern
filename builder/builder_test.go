@@ -26,3 +26,9 @@ func TestNewDirector(t *testing.T) {
 		t.Error("NewDirector failed.")
 	}
 }
+
+func TestConstruct(t *testing.T) {
+	h := NewHTMLBuilder()
+	n := NewDirector(h)
+	n.Construct()
+}
