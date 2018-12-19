@@ -29,6 +29,8 @@ type Builder interface {
 
 // TextBuilder implements Builder.
 type TextBuilder struct {
+	file string
+	wrt  string
 }
 
 // NewTextBuilder TextBuilder constructor
@@ -37,6 +39,7 @@ func NewTextBuilder() *TextBuilder {
 }
 
 func (t TextBuilder) makeTitle(s string) {
+
 }
 
 func (t TextBuilder) makeString(s string) {
