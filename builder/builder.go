@@ -73,7 +73,7 @@ func (h HTMLBuilder) makeTitle(s string) {
 	fileNm := s + ".html"
 	file, err := os.Create(fileNm)
 	if err != nil {
-		//
+		return
 	}
 	defer file.Close()
 	output := "<html><head><title>" + s + "</head></title></html>"
