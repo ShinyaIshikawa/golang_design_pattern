@@ -1,6 +1,9 @@
 package builder
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 // Director directe to builder.
 type Director struct {
@@ -73,11 +76,16 @@ func (h HTMLBuilder) makeTitle(s string) {
 	fileNm := s + ".html"
 	file, err := os.Create(fileNm)
 	if err != nil {
+		log.Fatal(err)
 		return
 	}
 	defer file.Close()
 	output := "<html><head><title>" + s + "</head></title></html>"
-	file.Write(([]byte)(output))
+	_, err = file.Write(([]byte)(output))
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 }
 
 func (h HTMLBuilder) makeString(s string) {
