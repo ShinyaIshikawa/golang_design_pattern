@@ -7,34 +7,28 @@ import (
 
 func TestNewTextBuilder(t *testing.T) {
 	n := NewTextBuilder()
-	if reflect.TypeOf(n).String() != "*builder.TextBuilder" {
-		t.Error("NewTextBuilder failed.")
+	got := reflect.TypeOf(n).String()
+	want := "*builder.TextBuilder"
+	if got != want {
+		t.Errorf("got %q, want %q", got, want)
 	}
 }
 
 func TestNewHTMLBuilder(t *testing.T) {
 	n := NewHTMLBuilder()
-	if reflect.TypeOf(n).String() != "*builder.HTMLBuilder" {
-		t.Error("NewHTMLBuilder failed.")
+	got := reflect.TypeOf(n).String()
+	want := "*builder.HTMLBuilder"
+	if got != want {
+		t.Errorf("got %q, want %q", got, want)
 	}
 }
 
 func TestNewDirector(t *testing.T) {
 	h := NewHTMLBuilder()
 	n := NewDirector(h)
-	if reflect.TypeOf(n).String() != "*builder.Director" {
-		t.Error("NewDirector failed.")
+	got := reflect.TypeOf(n).String()
+	want := "*builder.Director"
+	if got != want {
+		t.Errorf("got %q, want %q", got, want)
 	}
-}
-
-func TestHTMLBuilderConstruct(t *testing.T) {
-	h := NewHTMLBuilder()
-	d := NewDirector(h)
-	d.Construct()
-}
-
-func TestTextBuilderConstruct(t *testing.T) {
-	tx := NewTextBuilder()
-	d := NewDirector(tx)
-	d.Construct()
 }
