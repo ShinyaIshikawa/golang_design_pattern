@@ -106,7 +106,10 @@ func (h *HTMLBuilder) makeString(s string) {
 }
 
 func (h *HTMLBuilder) makeItems(items []string) {
-	h.file.Write([]byte("<ul>"))
+	_, err := h.file.Write([]byte("<ul>"))
+	if err != nil {
+		log.Fatal(err)
+	}
 	for i := 0; i < len(items); i++ {
 		_, err := h.file.Write([]byte(items[i]))
 		if err != nil {
@@ -116,7 +119,10 @@ func (h *HTMLBuilder) makeItems(items []string) {
 }
 
 func (h *HTMLBuilder) close() {
-	h.file.Write([]byte("</body></html>"))
+	_, err := h.file.Write([]byte("</body></html>"))
+	if err != nil {
+		log.Fatal(err)
+	}
 	h.file.Close()
 }
 
