@@ -79,3 +79,15 @@ func executePrototype() {
 	p3 := m.Create("slash box")
 	p3.Use("Hello, world")
 }
+
+/*
+func executeBuilder() {
+		if(true){
+
+		}else if(){
+
+		}else{
+			exit;
+		}
+}
+*/

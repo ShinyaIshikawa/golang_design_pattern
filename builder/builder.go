@@ -6,6 +6,7 @@ import (
 )
 
 // Director directe to builder.
+// Director has Builder instance.
 type Director struct {
 	build Builder
 }
@@ -16,6 +17,7 @@ func NewDirector(b Builder) *Director {
 }
 
 // Construct instruct the builder instance.
+// Construct build sentence.
 func (d *Director) Construct() {
 	d.build.makeTitle("Greeting")
 	d.build.makeString("朝から昼にかけて")
@@ -33,6 +35,7 @@ type Builder interface {
 }
 
 // TextBuilder implements Builder.
+//
 type TextBuilder struct {
 	str string
 }
@@ -63,8 +66,15 @@ func (t *TextBuilder) close() {
 	t.str = "=============================¥n"
 }
 
+// GetResult return decorate strings.
+func (t *TextBuilder) GetResult() string {
+	return t.str
+}
+
 // HTMLBuilder implement Builder.
 type HTMLBuilder struct {
+	fileNm string
+	file   *os.File
 }
 
 // NewHTMLBuilder HTMLBuilder constructor.
@@ -72,27 +82,51 @@ func NewHTMLBuilder() *HTMLBuilder {
 	return &HTMLBuilder{}
 }
 
-func (h HTMLBuilder) makeTitle(s string) {
-	fileNm := s + ".html"
-	file, err := os.Create(fileNm)
+func (h *HTMLBuilder) makeTitle(s string) {
+	h.fileNm = s + ".html"
+	file, err := os.Create(h.fileNm)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	defer file.Close()
 	output := "<html><head><title>" + s + "</head></title></html>"
-	_, err = file.Write(([]byte)(output))
+	_, wErr := file.Write(([]byte)(output))
+	if wErr != nil {
+		log.Fatal(wErr)
+	}
+	h.file = file
+}
+
+func (h *HTMLBuilder) makeString(s string) {
+	str := "<p>" + s + "</p>"
+	_, err := h.file.Write([]byte(str))
 	if err != nil {
 		log.Fatal(err)
-		return
 	}
 }
 
-func (h HTMLBuilder) makeString(s string) {
+func (h *HTMLBuilder) makeItems(items []string) {
+	_, err := h.file.Write([]byte("<ul>"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	for i := 0; i < len(items); i++ {
+		_, err := h.file.Write([]byte(items[i]))
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 }
 
-func (h HTMLBuilder) makeItems(s []string) {
+func (h *HTMLBuilder) close() {
+	_, err := h.file.Write([]byte("</body></html>"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	h.file.Close()
 }
 
-func (h HTMLBuilder) close() {
+// GetResult return HTML File name.
+func (h *HTMLBuilder) GetResult() string {
+	return h.fileNm
 }
