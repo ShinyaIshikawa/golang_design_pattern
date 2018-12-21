@@ -90,22 +90,28 @@ func (h *HTMLBuilder) makeTitle(s string) {
 		return
 	}
 	output := "<html><head><title>" + s + "</head></title></html>"
-	_, err = file.Write(([]byte)(output))
-	if err != nil {
-		log.Fatal(err)
+	_, wErr := file.Write(([]byte)(output))
+	if wErr != nil {
+		log.Fatal(wErr)
 	}
 	h.file = file
 }
 
 func (h *HTMLBuilder) makeString(s string) {
 	str := "<p>" + s + "</p>"
-	h.file.Write([]byte(str))
+	_, err := h.file.Write([]byte(str))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func (h *HTMLBuilder) makeItems(items []string) {
 	h.file.Write([]byte("<ul>"))
 	for i := 0; i < len(items); i++ {
-		h.file.Write([]byte(items[i]))
+		_, err := h.file.Write([]byte(items[i]))
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 

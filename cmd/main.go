@@ -80,8 +80,8 @@ func executePrototype() {
 	p3.Use("Hello, world")
 }
 
+/*
 func executeBuilder() {
-	/*
 		if(true){
 
 		}else if(){
@@ -89,5 +89,5 @@ func executeBuilder() {
 		}else{
 			exit;
 		}
-	*/
 }
+*/
