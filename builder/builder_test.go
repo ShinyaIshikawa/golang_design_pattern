@@ -32,3 +32,13 @@ func TestNewDirector(t *testing.T) {
 		t.Errorf("got %q, want %q", got, want)
 	}
 }
+
+func TestMakeFile(t *testing.T) {
+	h := NewHTMLBuilder()
+	n := NewDirector(h)
+	got := reflect.TypeOf(n).String()
+	want := "*builder.Director"
+	if got != want {
+		t.Errorf("got %q, want %q", got, want)
+	}
+}

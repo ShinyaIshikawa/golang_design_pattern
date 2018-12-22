@@ -46,24 +46,24 @@ func NewTextBuilder() *TextBuilder {
 }
 
 func (t *TextBuilder) makeTitle(s string) {
-	t.str = "=============================¥n"
+	t.str = "=============================\n"
 	t.str = t.str + "「" + s + "」"
 }
 
 func (t *TextBuilder) makeString(s string) {
-	t.str = "□" + s + "¥n"
-	t.str = t.str + "¥n"
+	t.str = "□" + s + "\n"
+	t.str = t.str + "\n"
 }
 
 func (t *TextBuilder) makeItems(items []string) {
 	for i := 0; i < len(items); i++ {
-		t.str = t.str + items[i] + "¥n"
+		t.str = t.str + items[i] + "\n"
 	}
-	t.str = t.str + "¥n"
+	t.str = t.str + "\n"
 }
 
 func (t *TextBuilder) close() {
-	t.str = "=============================¥n"
+	t.str = "=============================\n"
 }
 
 // GetResult return decorate strings.

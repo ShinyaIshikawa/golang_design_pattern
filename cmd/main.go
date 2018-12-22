@@ -1,9 +1,11 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 
 	adp "github.com/ShinyaIshikawa/golang_design_pattern/adapter"
+	bld "github.com/ShinyaIshikawa/golang_design_pattern/builder"
 	fm "github.com/ShinyaIshikawa/golang_design_pattern/factory"
 	itr "github.com/ShinyaIshikawa/golang_design_pattern/iterator"
 	pr "github.com/ShinyaIshikawa/golang_design_pattern/prototype"
@@ -18,6 +20,7 @@ func main() {
 	executeFactoryMethod()
 	executeSingleton()
 	executePrototype()
+	executeBuilder()
 }
 
 func executeIterator() {
@@ -80,14 +83,20 @@ func executePrototype() {
 	p3.Use("Hello, world")
 }
 
-/*
 func executeBuilder() {
-		if(true){
-
-		}else if(){
-
-		}else{
-			exit;
-		}
+	flag.Parse()
+	args := flag.Args()
+	if args[0] == "plain" {
+		b := bld.NewTextBuilder()
+		d := bld.NewDirector(b)
+		d.Construct()
+		result := b.GetResult()
+		fmt.Println(result)
+	} else if args[0] == "html" {
+		b := bld.NewHTMLBuilder()
+		d := bld.NewDirector(b)
+		d.Construct()
+		fileNm := b.GetResult()
+		fmt.Println(fileNm + " が作成されました")
+	}
 }
-*/
