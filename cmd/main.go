@@ -42,10 +42,10 @@ func executeAdapter() {
 
 func executeTemplateMethod() {
 	cd := tm.NewCharDisplay("go")
-	cdc := tm.NewDisplayController(cd)
+	cdc := tm.NewDisplay(cd)
 	cdc.Display()
 	sd := tm.NewStringDisplay("gopher is nice.", 10)
-	sdc := tm.NewDisplayController(sd)
+	sdc := tm.NewDisplay(sd)
 	sdc.Display()
 }
 
