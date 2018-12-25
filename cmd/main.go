@@ -17,6 +17,7 @@ func main() {
 	executeIterator()
 	executeAdapter()
 	executeTemplateMethod()
+	executeTemplateMethod2()
 	executeFactoryMethod()
 	executeSingleton()
 	executePrototype()
@@ -45,6 +46,15 @@ func executeTemplateMethod() {
 	cdc := tm.NewDisplay(cd)
 	cdc.Display()
 	sd := tm.NewStringDisplay("gopher is nice.", 10)
+	sdc := tm.NewDisplay(sd)
+	sdc.Display()
+}
+
+func executeTemplateMethod2() {
+	cd := tm.NewCharDisplay("James Gosling")
+	cdc := tm.NewDisplay(cd)
+	cdc.Display()
+	sd := tm.NewStringDisplay("programming interface.", 10)
 	sdc := tm.NewDisplay(sd)
 	sdc.Display()
 }

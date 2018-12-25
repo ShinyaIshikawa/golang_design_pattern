@@ -8,5 +8,5 @@ import (
 
 func TestNewPrintBanner(t *testing.T) {
 	pb := NewPrintBanner("Black Friday SALE!")
-	assert.Equal(t, "Black Friday SALE!", pb.banner.title)
+	assert.Equal(t, "Black Friday SALE!", pb.title)
 }
