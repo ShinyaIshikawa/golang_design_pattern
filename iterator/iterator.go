@@ -56,10 +56,7 @@ type BookShelfIterator struct {
 
 // HasNext return boolean whether aggregate has next or not.
 func (bsi *BookShelfIterator) HasNext() bool {
-	if bsi.Index < bsi.BookShelf.GetLength() {
-		return true
-	}
-	return false
+	return bsi.Index < bsi.BookShelf.GetLength()
 }
 
 // Next function return object of aggreate.
