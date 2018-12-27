@@ -4,32 +4,40 @@ import (
 	"fmt"
 )
 
+// Display represent feature.
 type Display struct {
 	DisplayImpl
 }
 
+// Open call DisplayImpl's function rawOpen.
 func (d Display) Open() {
 	d.rawOpen()
 }
 
+// Print call DisplayImpl's function rawPrint.
 func (d Display) Print() {
 	d.rawPrint()
 }
 
+// Close call DisplayImpl's function rawClose.
 func (d Display) Close() {
 	d.rawClose()
 }
 
+// Display execute all Display function.
 func (d Display) Display() {
 	d.Open()
 	d.Print()
 	d.Close()
 }
 
+// CountDisplay is object composition.
+// Defined one function.
 type CountDisplay struct {
 	Display
 }
 
+// MultipleDisplay execute Print multiple times.
 func (cd CountDisplay) MultipleDisplay(cnt int) {
 	cd.Open()
 	for i := 0; i < cnt; i++ {
@@ -37,12 +45,14 @@ func (cd CountDisplay) MultipleDisplay(cnt int) {
 	}
 }
 
+// DisplayImpl represent implement.
 type DisplayImpl interface {
 	rawOpen()
 	rawPrint()
 	rawClose()
 }
 
+// StringDisplayImpl implement DispImpl.
 type StringDisplayImpl struct {
 	str   string
 	width int
