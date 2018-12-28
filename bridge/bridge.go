@@ -58,6 +58,11 @@ type StringDisplayImpl struct {
 	width int
 }
 
+// NewStringDisplayImpl is constructor.
+func NewStringDisplayImpl(str string) *StringDisplayImpl {
+	return &StringDisplayImpl{str: str, width: len(str)}
+}
+
 func (sd StringDisplayImpl) rawOpen() {
 
 }
@@ -71,5 +76,9 @@ func (sd StringDisplayImpl) rowClose() {
 }
 
 func (sd StringDisplayImpl) printLine() {
-	fmt.Println()
+	fmt.Println("+")
+	for i := 0; i < sd.width; i++ {
+		fmt.Println("-")
+	}
+	fmt.Println("+")
 }
