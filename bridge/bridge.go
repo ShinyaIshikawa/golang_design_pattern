@@ -9,6 +9,11 @@ type Display struct {
 	DisplayImpl
 }
 
+// NewDisplay is Display constructor.
+func NewDisplay(imp DisplayImpl) *Display {
+	return &Display{imp}
+}
+
 // Open call DisplayImpl's function rawOpen.
 func (d Display) Open() {
 	d.rawOpen()
@@ -34,7 +39,12 @@ func (d Display) Display() {
 // CountDisplay is object composition.
 // Defined one function.
 type CountDisplay struct {
-	Display
+	*Display
+}
+
+// NewCountDisplay is CountDisplay constructor.
+func NewCountDisplay(imp DisplayImpl) *CountDisplay {
+	return &CountDisplay{NewDisplay(imp)}
 }
 
 // MultipleDisplay execute Print multiple times.
@@ -59,26 +69,26 @@ type StringDisplayImpl struct {
 }
 
 // NewStringDisplayImpl is constructor.
-func NewStringDisplayImpl(str string) *StringDisplayImpl {
-	return &StringDisplayImpl{str: str, width: len(str)}
+func NewStringDisplayImpl(str string) StringDisplayImpl {
+	return StringDisplayImpl{str: str, width: len(str)}
 }
 
 func (sd StringDisplayImpl) rawOpen() {
-
+	sd.printLine()
 }
 
-func (sd StringDisplayImpl) rowPrint() {
-
+func (sd StringDisplayImpl) rawPrint() {
+	fmt.Println("|" + sd.str + "|")
 }
 
-func (sd StringDisplayImpl) rowClose() {
-
+func (sd StringDisplayImpl) rawClose() {
+	sd.printLine()
 }
 
 func (sd StringDisplayImpl) printLine() {
-	fmt.Println("+")
+	fmt.Print("+")
 	for i := 0; i < sd.width; i++ {
-		fmt.Println("-")
+		fmt.Print("-")
 	}
 	fmt.Println("+")
 }
