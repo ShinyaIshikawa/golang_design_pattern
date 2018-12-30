@@ -18,9 +18,16 @@ func TestNewStiringDisplay(t *testing.T) {
 	}
 }
 
-func ExampleDisplay() {
+func ExampleDisplay_Open() {
 	imp := NewStringDisplayImpl("yokohama")
 	d := NewDisplay(imp)
 	d.Open()
 	// Output: +--------+
+}
+
+func ExampleDisplay_Close() {
+	imp := NewStringDisplayImpl("tokyo")
+	d := NewDisplay(imp)
+	d.Close()
+	// Output: +-----+
 }
