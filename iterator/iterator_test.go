@@ -9,9 +9,17 @@ import (
 func TestHasNext(t *testing.T) {
 	bookShelf := BookShelf{Last: 0}
 	it := bookShelf.Iterator()
-	assert.Equal(t, false, it.HasNext())
+	got := it.HasNext()
+	want := true
+	if got != want {
+		t.Errorf("got %v, want %v", got, want)
+	}
 	bookShelf.AppendBook(Book{Name: "hoge"})
-	assert.Equal(t, true, it.HasNext())
+	gotName := it.Next().GetName()
+	wantName := "hoge"
+	if gotName != wantName {
+		t.Errorf("got %v, want %v", gotName, wantName)
+	}
 }
 
 func TestNext(t *testing.T) {
