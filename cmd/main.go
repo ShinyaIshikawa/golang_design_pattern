@@ -57,15 +57,6 @@ func executeTemplateMethod() {
 	end("Template method")
 }
 
-func executeTemplateMethod2() {
-	cd := tm.NewCharDisplay("James Gosling")
-	cdc := tm.NewDisplay(cd)
-	cdc.Display()
-	sd := tm.NewStringDisplay("programming interface.", 10)
-	sdc := tm.NewDisplay(sd)
-	sdc.Display()
-}
-
 func executeFactoryMethod() {
 	start("Factory method")
 	cf := fm.NewIDCardFactory()
