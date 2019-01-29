@@ -26,7 +26,7 @@ func NewWinningStrategy(seed int64) WinningStrategy {
 // NextHand return Hand instance.
 func (w *WinningStrategy) NextHand() Hand {
 	if !w.won {
-		return getHand(rand.Intn(3))
+		return GetHand(rand.Intn(3))
 	}
 	return w.prevHand
 }
@@ -55,7 +55,7 @@ func NewWProbStrategy(seed int64) ProbStrategy {
 
 // NextHand return Hand instance.
 func (p *ProbStrategy) NextHand() Hand {
-	var bet = rand.Int()
+	var bet = rand.Intn(p.getSum(p.currentHandValue))
 	var handvalue int
 	if bet < p.history[p.currentHandValue][0] {
 		handvalue = 0
@@ -66,7 +66,7 @@ func (p *ProbStrategy) NextHand() Hand {
 	}
 	p.prevHandValue = p.currentHandValue
 	p.currentHandValue = handvalue
-	return getHand(handvalue)
+	return GetHand(handvalue)
 }
 
 // NextHand return Hand instance.
@@ -103,19 +103,23 @@ type Hand struct {
 var hand = []Hand{Hand{GUU}, Hand{CHO}, Hand{PAA}}
 var name = []string{"グー", " チョキ", " パー"}
 
-func getHand(handvalue int) Hand {
+// GetHand return Hand instance.
+func GetHand(handvalue int) Hand {
 	return hand[handvalue]
 }
 
-func (h Hand) isStrongerThan(hand Hand) bool {
-	return h.fight(hand) == 1
+// IsStrongerThan return strong or not.
+func (h Hand) IsStrongerThan(hand Hand) bool {
+	return h.Fight(hand) == 1
 }
 
-func (h Hand) isWeakerThan(hand Hand) bool {
-	return h.fight(hand) == -1
+// IsWeakerThan return weak or not.
+func (h Hand) IsWeakerThan(hand Hand) bool {
+	return h.Fight(hand) == -1
 }
 
-func (h Hand) fight(hand Hand) int {
+// Fight return rock–paper–scissors result.
+func (h Hand) Fight(hand Hand) int {
 	if h == hand {
 		return 0
 	} else if (h.handvalue+1)%3 == hand.handvalue {
@@ -125,7 +129,12 @@ func (h Hand) fight(hand Hand) int {
 	}
 }
 
-// Player is context class.
+// String convert Player to string function.
+func (h Hand) String() string {
+	return name[h.handvalue]
+}
+
+// Player is context class in Strategy Pattern.
 type Player struct {
 	name      string
 	strategy  Strategy
@@ -163,7 +172,7 @@ func (p *Player) Even() {
 	p.gamecount++
 }
 
-// String is convert-to-string function.
+// String convert Player to string function.
 func (p *Player) String() string {
 	return fmt.Sprintf("[%s:%d games, %d win, %d lose]", p.name, p.gamecount, p.wincount, p.losecount)
 }
