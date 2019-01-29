@@ -1,6 +1,7 @@
 package strategy
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -54,7 +55,7 @@ func NewWProbStrategy(seed int64) ProbStrategy {
 
 // NextHand return Hand instance.
 func (p *ProbStrategy) NextHand() Hand {
-	var bet int = rand.Int()
+	var bet = rand.Int()
 	var handvalue int
 	if bet < p.history[p.currentHandValue][0] {
 		handvalue = 0
@@ -77,9 +78,17 @@ func (p *ProbStrategy) getSum(hv int) int {
 	return sum
 }
 
+// Study record result.
 func (p *ProbStrategy) Study(win bool) {
+	if win {
+		p.history[p.prevHandValue][p.currentHandValue]++
+	} else {
+		p.history[p.prevHandValue][(p.currentHandValue+1)%3]++
+		p.history[p.prevHandValue][(p.currentHandValue+2)%3]++
+	}
 }
 
+// constract rock,paper,scissors
 const (
 	GUU = iota
 	CHO
@@ -135,21 +144,26 @@ func (p *Player) NextHand() {
 	p.strategy.NextHand()
 }
 
-// Win
+// Win record　win result.
 func (p *Player) Win() {
 	p.strategy.Study(true)
 	p.wincount++
 	p.gamecount++
 }
 
-// Lose
+// Lose record　lose result.
 func (p *Player) Lose() {
 	p.strategy.Study(false)
 	p.losecount++
 	p.gamecount++
 }
 
-// Even.
+// Even record　lose result.
 func (p *Player) Even() {
 	p.gamecount++
+}
+
+// String is convert-to-string function.
+func (p *Player) String() string {
+	return fmt.Sprintf("[%s:%d games, %d win, %d lose]", p.name, p.gamecount, p.wincount, p.losecount)
 }
