@@ -10,7 +10,7 @@ func TestHasNext(t *testing.T) {
 	bookShelf := BookShelf{Last: 0}
 	it := bookShelf.Iterator()
 	got := it.HasNext()
-	want := true
+	want := false
 	if got != want {
 		t.Errorf("got %v, want %v", got, want)
 	}
