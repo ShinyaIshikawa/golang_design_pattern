@@ -17,7 +17,6 @@ func main() {
 	executeIterator()
 	executeAdapter()
 	executeTemplateMethod()
-	executeTemplateMethod2()
 	executeFactoryMethod()
 	executeSingleton()
 	executePrototype()
