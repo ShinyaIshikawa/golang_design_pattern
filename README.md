@@ -1,21 +1,36 @@
 <H1>golang_design_pattern</H1>
 
-<H2>はじめに</H2>
-golangを利用したデザインパターンの実装です。
+<H2>Overview</H2>
+Design pattern impletation of Go programming.
+Design pattern is based on [Introduction to design patterns learned in Java language](https://www.amazon.co.jp/exec/obidos/ASIN/4797327030/hyuki-22/) written by Hiroshi Yuki.
 
-デザインパターンは結城浩さん著作の「Java言語で学ぶデザインパターン入門」を参考にしています。
-Javaとgolangは言語仕様が異なるため、Javaでは抽象クラスで表現しているところをgolangでは構造体としたり、
-Javaでは継承で表現されているところをgolangではコンポジションに置き換えて設計しています。
+## Description
+Go does not have the concept of inheritance, so we can not use the design pattern with inheritance.
+When asking design pattern using inheritance, template method pattern may come to mind.
+In Go, the template method pattern is expressed using duck typing by interface and structure embedding.
 
-<H3>一つ一つ数え上げる Itaratorパターン</H3>
+Abstract classes are frequently defined in object-oriented languages ​​such as Java, but Go thinks that it is best practice to keep interface usage to a minimum at go.
+
+
+<H3>To count one by one Itarator　pattern </H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/iterator>
 
-<H3>皮を被せる Adapterパターン</H3>
+<H3>To cover the skin Adapter pattern</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/adapter>
 
-<H3>具体的な処理をサブクラスにまかせる Template Methodパターン</H3>
+<H3>Leave concrete processing to subclass Template Method pattern</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/template>
-* golangには抽象クラスがないため、コンポジションで再利用を実現しています。
+* Realize template method pattern in object composition.
+
+## Requirement
+
+## Usage
+
+## Licence
+
+## Author
+
+[Shinya Ishikawa](https://github.com/ShinyaIshikawa)
