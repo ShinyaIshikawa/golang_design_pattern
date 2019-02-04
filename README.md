@@ -1,4 +1,4 @@
-<H1>Design pattern in Go</H1>
+<H1>Design Pattern in Go</H1>
 
 <H2>Overview</H2>
 Design pattern impletation of Go programming.
