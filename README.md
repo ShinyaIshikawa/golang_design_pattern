@@ -12,20 +12,35 @@ In Go, the template method pattern is expressed using duck typing by interface a
 Abstract classes are frequently defined in object-oriented languages ​​such as Java, but Go thinks that it is best practice to keep interface usage to a minimum at go.
 
 
-<H3>Itarator　Pattern (to count one by one) </H3>
+<H3>Itarator Pattern (To count one by one.) </H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/iterator>
 
-<H3>Adapter Pattern (To cover the skin)</H3>
+<H3>Adapter Pattern (To cover the skin.)</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/adapter>
 
-<H3>Template Method Pattern(Leave concrete processing to subclass)</H3>
+<H3>Template Method Pattern(Leave concrete processing to subclass.)</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/template>
 * Realize template method pattern in object composition.
 
-## Requirement
+<H3>Singleton Pattern(Only one instance.)</H3>
+
+<https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/singleton>
+
+<H3>Prototype　Pattern(Copy and create instance.)</H3>
+
+<https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/prototype>
+
+<H3>Builder　Pattern(Assemble complex instances.)</H3>
+
+<https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/builder>
+
+<H3>Strategy　Pattern(Switch algorithms.)</H3>
+
+<https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/strategy>
+
 
 ## License
 MIT
