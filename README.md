@@ -1,6 +1,6 @@
-<H1>Design Pattern in Go</H1>
+## Design Pattern in Go
 
-<H2>Overview</H2>
+## Overview
 Design pattern impletation of Go programming.
 Design pattern is based on [Introduction to design patterns learned in Java language](https://www.amazon.co.jp/exec/obidos/ASIN/4797327030/hyuki-22/) written by Hiroshi Yuki.
 
@@ -11,34 +11,33 @@ In Go, the template method pattern is expressed using duck typing by interface a
 
 Abstract classes are frequently defined in object-oriented languages ​​such as Java, but Go thinks that it is best practice to keep interface usage to a minimum at go.
 
-
-<H3>Itarator Pattern (To count one by one.) </H3>
-
+### Itarator Pattern
+To count one by one. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/iterator>
 
-<H3>Adapter Pattern (To cover the skin.)</H3>
-
+### Adapter Pattern
+To cover the skin. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/adapter>
 
-<H3>Template Method Pattern(Leave concrete processing to subclass.)</H3>
-
+### Template Method Pattern
+Leave concrete processing to subclass. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/template>
 * Realize template method pattern in object composition.
 
-<H3>Singleton Pattern(Only one instance.)</H3>
-
+### Singleton Pattern
+Only one instance. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/singleton>
 
-<H3>Prototype Pattern(Copy and create instance.)</H3>
-
+### Prototype Pattern
+Copy and create instance. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/prototype>
 
-<H3>Builder Pattern(Assemble complex instances.)</H3>
-
+### Builder Pattern
+Assemble complex instances. 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/builder>
 
-<H3>Strategy Pattern(Switch algorithms.)</H3>
-
+### Strategy Pattern
+Assemble complex instances.  
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/strategy>
 
 
