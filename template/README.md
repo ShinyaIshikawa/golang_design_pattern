@@ -1,16 +1,15 @@
-<H3>具体的な処理をサブクラスにまかせる Template Methodパターン</H3>
+Initially, the template method pattern is a design that defines a template method function in abstract class and concrete implementation with concreate class.
+However, since Go does not have an abstract class, we separate the responsibility of defining the template method and the responsibility to describe concrete processing.
 
-オリジナルは抽象クラスに処理の大枠を定義して、具体的な処理をサブクラスに任せていますが、
-本ソースではdisplay_contorollerで処理の大枠を定義して、具体的な処理はdisplayにまかせています。
+* display
+template method A structure for the function.
+DisplayStrategy intarerface is embedded.
 
-* display_contoroller  
-処理の大枠を定めています。 display_contorollerはdisplayを持ちます。
+* DisplayStrategy(interface)  
+It defines behavior related to display.
 
-* display(interface)  
-表示に関する振る舞いを定義しています。
+* CharDisplay  
+An implementation of DisplayStrategy.
 
-* char_display  
-displayをimplemetします。
-
-* string_display  
-displayをimplemetします。
+* StringDisplay  
+An implementation of DisplayStrategy.
