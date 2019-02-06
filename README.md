@@ -29,15 +29,15 @@ Abstract classes are frequently defined in object-oriented languages ​​such 
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/singleton>
 
-<H3>Prototype　Pattern(Copy and create instance.)</H3>
+<H3>Prototype Pattern(Copy and create instance.)</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/prototype>
 
-<H3>Builder　Pattern(Assemble complex instances.)</H3>
+<H3>Builder Pattern(Assemble complex instances.)</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/builder>
 
-<H3>Strategy　Pattern(Switch algorithms.)</H3>
+<H3>Strategy Pattern(Switch algorithms.)</H3>
 
 <https://github.com/ShinyaIshikawa/golang_design_pattern/tree/master/strategy>
 
